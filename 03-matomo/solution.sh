@@ -1,0 +1,2 @@
+docker run -d --name mysql -p 3307:3306 -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="rootpassword" -e MYSQL_DATABASE="matomo" -e MYSQL_USER="matomo" -e MYSQL_PASSWORD="yourpassword" mysql:latest
+docker run -d --name matomo -p 8081:80 -v matomo-data:/var/www/html --link mysql:db -e MATOMO_DATABASE_HOST="mysql" -e MATOMO_DATABASE_DBNAME="matomo" -e MATOMO_DATABASE_USERNAME="matomo" -e MATOMO_DATABASE_PASSWORD="yourpassword" matomo
